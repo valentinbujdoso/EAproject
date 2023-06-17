@@ -1,0 +1,38 @@
+server:
+  port: 8080
+
+eureka:
+  client:
+    service-url:
+      default-zone:
+        http://localhost:8761/eureka/
+    registerWithEureka: true
+    fetchRegistry: true
+zuul:
+  sensitiveHeaders:
+  routes:
+    spring-security-oauth-resource:
+      path: /spring-security-oauth-resource/**
+      url: http://localhost:8088/spring-security-oauth-resource
+    oauth:
+      path: /oauth/**
+      url: http://localhost:8088/oauth
+    test:
+      service-id: SecureService
+    user:
+      path: /user/**
+      url: http://localhost:8088
+
+security:
+  oauth2:
+    client:
+      accessTokenUri: http://localhost:8088/oauth/token
+      userAuthorizationUri: http://localhost:8088/oauth/authorize
+      clientId: client
+      clientSecret: secret
+    resource:
+      userInfoUri: http://localhost:8088/user
+
+spring:
+  application:
+    name: ApiGateway
