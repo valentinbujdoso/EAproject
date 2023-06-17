@@ -26,7 +26,12 @@ public class Controller {
 	@GetMapping("/salary")
 	public String getSalary() {
 		return "Salary";
-//		return restTemplate.getForObject("http://localhost:8092/salary", String.class);
+//		return restTemplate.getForObject("http://localhost:8092/salary", String.class); 
+	}
+
+	@GetMapping("/userid")
+	public String getUserId() {
+		return restTemplate.getForObject("http://localhost:8088/user/id", String.class);
 	}
 }
 
