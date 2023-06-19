@@ -20,16 +20,16 @@ public class PostService implements IPostService {
          return postDao.findAll();
     }
 
-    public void add( Post post) {
-        postDao.save(post);
+    public Post add( Post post) {
+        return postDao.save(post);
     }
 
     public Post get(Long id) {
         return postDao.findById(id).get();
     }
 
-    public void update(Post post) {
-        postDao.save(post);
+    public Post update(Post post) {
+       return postDao.save(post);
     }
 
     public void delete(Long id) {

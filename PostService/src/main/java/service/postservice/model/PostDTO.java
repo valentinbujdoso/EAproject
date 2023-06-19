@@ -11,5 +11,5 @@ import lombok.NoArgsConstructor;
 public class PostDTO {
     private String title;
     private String description;
-    private Long userId;
+//    private Long userId;
 }

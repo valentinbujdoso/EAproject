@@ -24,4 +24,9 @@ public class Post {
 
     private String userId;
 
+    public Post(String title, String description, String userId) {
+        this.title = title;
+        this.description = description;
+        this.userId = userId;
+    }
 }

@@ -22,6 +22,8 @@ zuul:
       url: http://localhost:8088
     comment:
       service-id: COMMENT-SERVICE
+    post:
+      service-id: POST-SERVICE
 
 security:
   oauth2:
