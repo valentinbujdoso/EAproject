@@ -49,9 +49,14 @@ public class CommentController {
     }
 
     @PutMapping("/update/{comment_id}")
-    public ResponseEntity<?> updateComment(@PathVariable Long comment_id, @RequestBody Comment comment){
+    public ResponseEntity<?> updateComment(@PathVariable Long post_id, @PathVariable Long comment_id, @RequestBody Comment comment){
         String user_id = this.getUserName();
         commentService.checkUserOwnsComment(user_id, comment_id);
+
+        comment.setPost_id(post_id);
+        comment.setUser_id(user_id);
+        comment.setId(comment_id);
+
         return new ResponseEntity<>(commentService.updateComment(comment), HttpStatus.OK);
     }
 

@@ -51,8 +51,14 @@ public class PostController {
     }
 
     @PutMapping("/{postId}")
-    public  Post updatePost(@PathVariable Long postId, @RequestBody Post post) {
-        post.setPostId(postId);
+    public  Post updatePost(@PathVariable Long postId, @RequestBody PostDTO postDTO) {
+        String userId = this.getUserName();
+
+        postService.checkUser(postId, userId);
+
+        Post post = postService.get(postId);
+        post.setTitle(postDTO.getTitle());
+        post.setDescription(postDTO.getDescription());
 
         return postService.update(post);
     }
