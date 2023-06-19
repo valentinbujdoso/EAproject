@@ -17,11 +17,11 @@ zuul:
     oauth:
       path: /oauth/**
       url: http://localhost:8088/oauth
-    test:
-      service-id: SecureService
     user:
       path: /user/**
       url: http://localhost:8088
+    comment:
+      service-id: COMMENT-SERVICE
 
 security:
   oauth2:
